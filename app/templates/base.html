@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>{{ title }} </title>
+    </head>
+    <body>
+        <h1>Hello, {{ user }}!</h1>
+        <h2>Flavors</h2>
+        <ul>
+            {% for flavor in flavors %}
+                <li>{{flavor}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
