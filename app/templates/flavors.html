@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Hello, {{ user }}!</h1>
+<h2>Flavors</h2>
+<ul>
+    {% for flavor in flavors %}
+    <li>{{flavor}}</li>
+    {% endfor %}
+</ul>
+
+<div class="accordion" id="accordionExample2">
+    <ul>
+        {% for flavor in flavors %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{flavor}}">
+
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse{{flavor}}" aria-expanded="true" aria-controls="collapse{{flavor}}">
+                        {{flavor}}
+                    </button>
+            </h2>
+            {% if loop.first %}
+            <div id="collapse{{flavor}}" class="accordion-collapse collapse show" aria-labelledby="heading{{flavor}}" {%
+                else %} <div id="collapse{{flavor}}" class="accordion-collapse collapse"
+                aria-labelledby="heading{{flavor}}" {% endif %} data-bs-parent="#accordionExample2">
+                <div class="accordion-body">
+                    Description
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+{% endblock %}
